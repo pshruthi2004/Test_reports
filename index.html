@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Multi Hospital Lab Result Prediction</h2>
+
+    <form action="/predict_form" method="post">
+        <label>Hospital:</label>
+        <input type="text" name="hospital" placeholder="Hospital_A" required>
+
+        <label>Test Name:</label>
+        <input type="text" name="test_name" placeholder="Glucose" required>
+
+        <label>Unit:</label>
+        <input type="text" name="unit" placeholder="mg/dL" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            Predicted Value: {{ prediction }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
